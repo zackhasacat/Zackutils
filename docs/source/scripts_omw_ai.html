@@ -1,0 +1,334 @@
+<div id="luadoc">
+   
+<p>Basic AI interface</p>
+
+      <h2>Usage:</h2>
+    <pre class="example"><code>require('openmw.interfaces').AI</code></pre>
+
+  <h2><a id="#(AI)" >Type <code>AI</code></a></h2>
+    <table class="function_list">
+    <tr>
+    <td class="name" nowrap="nowrap"><a href="##(AI).filterPackages">AI.filterPackages(filterCallback)</a></td>
+    <td class="summary">
+<p>Iterate over all packages starting from the active one and remove those where <code>filterCallback</code> returns false.</p>
+</td>
+    </tr>
+    <tr>
+    <td class="name" nowrap="nowrap"><a href="##(AI).forEachPackage">AI.forEachPackage(callback)</a></td>
+    <td class="summary">
+<p>Iterate over all packages and run <code>callback</code> for each starting from the active one.</p>
+</td>
+    </tr>
+    <tr>
+    <td class="name" nowrap="nowrap"><a href="##(AI).getActivePackage">AI.getActivePackage()</a></td>
+    <td class="summary">
+<p>Return the currently active AI package (or <code>nil</code> if there are no AI packages).</p>
+</td>
+    </tr>
+    <tr>
+    <td class="name" nowrap="nowrap"><a href="##(AI).getActiveTarget">AI.getActiveTarget(packageType)</a></td>
+    <td class="summary">
+<p>Return the target of the active package if the package has given type</p>
+</td>
+    </tr>
+    <tr>
+    <td class="name" nowrap="nowrap"><a href="##(AI).getTargets">AI.getTargets(packageType)</a></td>
+    <td class="summary">
+<p>Get list of targets of all packages of the given type.</p>
+</td>
+    </tr>
+    <tr>
+    <td class="name" nowrap="nowrap"><a href="##(AI).removePackages">AI.removePackages(packageType)</a></td>
+    <td class="summary">
+<p>Remove packages of given type (remove all packages if the type is not specified).</p>
+</td>
+    </tr>
+    <tr>
+    <td class="name" nowrap="nowrap"><a href="##(AI).startPackage">AI.startPackage(options)</a></td>
+    <td class="summary">
+<p>Start new AI package.</p>
+</td>
+    </tr>
+    <tr>
+    <td class="name" nowrap="nowrap"><a href="##(AI).version">AI.version</a></td>
+    <td class="summary">
+<p>Interface version</p>
+</td>
+    </tr>
+  </table>
+
+      <h2><a id="#(Package)">Type <code>Package</code></a></h2>
+        <table class="function_list">
+    <tr>
+    <td class="name" nowrap="nowrap"><a href="##(Package).destPosition">Package.destPosition</a></td>
+    <td class="summary">
+<p>Destination point of the AI package.</p>
+</td>
+    </tr>
+    <tr>
+    <td class="name" nowrap="nowrap"><a href="##(Package).sideWithTarget">Package.sideWithTarget</a></td>
+    <td class="summary">
+<p>Whether to help the target in combat (true or false).</p>
+</td>
+    </tr>
+    <tr>
+    <td class="name" nowrap="nowrap"><a href="##(Package).target">Package.target</a></td>
+    <td class="summary">
+<p>Target (usually an actor) of the AI package (can be nil).</p>
+</td>
+    </tr>
+    <tr>
+    <td class="name" nowrap="nowrap"><a href="##(Package).type">Package.type</a></td>
+    <td class="summary">
+<p>Type of the AI package.</p>
+</td>
+    </tr>
+  </table>
+
+  <h2><a id="#(AI)" >Type <code>AI</code></a></h2>
+    <h3>Field(s)</h3>
+    <dl class="function">
+<dt>
+
+<a id="#(AI).filterPackages" >
+<strong>AI.filterPackages(filterCallback)</strong>
+</a>
+</dt>
+<dd>
+    
+<p>Iterate over all packages starting from the active one and remove those where <code>filterCallback</code> returns false.</p>
+
+      <h3>Parameter</h3>
+    <ul>
+        <li>
+        
+<p><code><em>#function filterCallback </em></code>: </p>
+
+        </li>
+    </ul>
+
+</dd>
+</dl>
+    <dl class="function">
+<dt>
+
+<a id="#(AI).forEachPackage" >
+<strong>AI.forEachPackage(callback)</strong>
+</a>
+</dt>
+<dd>
+    
+<p>Iterate over all packages and run <code>callback</code> for each starting from the active one.</p>
+
+    
+<p>The same as <code>filterPackage</code>, but without removal.</p>
+
+      <h3>Parameter</h3>
+    <ul>
+        <li>
+        
+<p><code><em>#function callback </em></code>: </p>
+
+        </li>
+    </ul>
+
+</dd>
+</dl>
+    <dl class="function">
+<dt>
+
+<a id="#(AI).getActivePackage" >
+<strong>AI.getActivePackage()</strong>
+</a>
+</dt>
+<dd>
+    
+<p>Return the currently active AI package (or <code>nil</code> if there are no AI packages).</p>
+
+      <h3>Return value</h3>
+        
+<p><em><a href="##(Package)">#Package</a>:</em></p>
+
+
+
+</dd>
+</dl>
+    <dl class="function">
+<dt>
+
+<a id="#(AI).getActiveTarget" >
+<strong>AI.getActiveTarget(packageType)</strong>
+</a>
+</dt>
+<dd>
+    
+<p>Return the target of the active package if the package has given type</p>
+
+      <h3>Parameter</h3>
+    <ul>
+        <li>
+        
+<p><code><em>#string packageType </em></code>: 
+The expected type of the active package</p>
+
+        </li>
+    </ul>
+    <h3>Return value</h3>
+        
+<p><em><a href="openmw_core.html##(GameObject)">openmw.core#GameObject</a>:</em>
+The target (can be nil if the package has no target or has another type)</p>
+
+
+</dd>
+</dl>
+    <dl class="function">
+<dt>
+
+<a id="#(AI).getTargets" >
+<strong>AI.getTargets(packageType)</strong>
+</a>
+</dt>
+<dd>
+    
+<p>Get list of targets of all packages of the given type.</p>
+
+      <h3>Parameter</h3>
+    <ul>
+        <li>
+        
+<p><code><em>#string packageType </em></code>: </p>
+
+        </li>
+    </ul>
+    <h3>Return value</h3>
+        
+<p><em><a href="openmw_core.html##(GameObject)">#list&lt;openmw.core#GameObject&gt;</a>:</em></p>
+
+
+
+</dd>
+</dl>
+    <dl class="function">
+<dt>
+
+<a id="#(AI).removePackages" >
+<strong>AI.removePackages(packageType)</strong>
+</a>
+</dt>
+<dd>
+    
+<p>Remove packages of given type (remove all packages if the type is not specified).</p>
+
+      <h3>Parameter</h3>
+    <ul>
+        <li>
+        
+<p><code><em>#string packageType </em></code>: 
+(optional) The type of packages to remove.</p>
+
+        </li>
+    </ul>
+
+</dd>
+</dl>
+    <dl class="function">
+<dt>
+
+<a id="#(AI).startPackage" >
+<strong>AI.startPackage(options)</strong>
+</a>
+</dt>
+<dd>
+    
+<p>Start new AI package.</p>
+
+      <h3>Parameter</h3>
+    <ul>
+        <li>
+        
+<p><code><em>#table options </em></code>: 
+See the "Built-in AI packages" page.</p>
+
+        </li>
+    </ul>
+
+</dd>
+</dl>
+    <dl class="function">
+<dt>
+
+    <em>#number</em>
+<a id="#(AI).version" >
+<strong>AI.version</strong>
+</a>
+</dt>
+<dd>
+    
+<p>Interface version</p>
+
+</dd>
+</dl>
+
+      <h2><a id="#(Package)" >Type <code>Package</code></a></h2>
+        
+<p>AI Package</p>
+
+  <h3>Field(s)</h3>
+    <dl class="function">
+<dt>
+
+    <em><a href="openmw_util.html##(Vector3)">openmw.util#Vector3</a></em>
+<a id="#(Package).destPosition" >
+<strong>Package.destPosition</strong>
+</a>
+</dt>
+<dd>
+    
+<p>Destination point of the AI package.</p>
+
+</dd>
+</dl>
+    <dl class="function">
+<dt>
+
+    <em>#boolean</em>
+<a id="#(Package).sideWithTarget" >
+<strong>Package.sideWithTarget</strong>
+</a>
+</dt>
+<dd>
+    
+<p>Whether to help the target in combat (true or false).</p>
+
+</dd>
+</dl>
+    <dl class="function">
+<dt>
+
+    <em><a href="openmw_core.html##(GameObject)">openmw.core#GameObject</a></em>
+<a id="#(Package).target" >
+<strong>Package.target</strong>
+</a>
+</dt>
+<dd>
+    
+<p>Target (usually an actor) of the AI package (can be nil).</p>
+
+</dd>
+</dl>
+    <dl class="function">
+<dt>
+
+    <em>#string</em>
+<a id="#(Package).type" >
+<strong>Package.type</strong>
+</a>
+</dt>
+<dd>
+    
+<p>Type of the AI package.</p>
+
+</dd>
+</dl>
+
+</div>
